@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 def create_profile(sender, **kwargs):
-    user = kwargs["instance"]
-    if kwargs["created"]:
-        user_profile = Profile(user=user)
-        user_profile.save()
+	user = kwargs["instance"]
+	if kwargs["created"]:
+		user_profile = Profile(user=user)
+		user_profile.save()
 
 post_save.connect(create_profile, sender=User)
