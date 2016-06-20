@@ -5,6 +5,10 @@ body {
 
 body { padding-top: 70px; }
 
+.btn {
+  font-family: Open Sans;
+}
+
 .btn-outline {
     background-color: transparent;
     color: inherit;
@@ -204,18 +208,16 @@ body { padding-top: 70px; }
 
 .page-container {
 	background: white;
-	border-radius: 3px;
+	border-radius: 4px;
 	padding: 20px 40px 40px 40px;
 	margin-top: 5vh;
   padding-bottom: 50px;
 }
 
-.page-container .page-header {
+.page-container .page-header  {
 	font-family: Open Sans;
 	margin-top: 0px;
-	font-weight: 300 !important;
-	/* sexyness below */
-	letter-spacing: -1.5px;
+	font-weight: 300;
 }
 
 .btn {
@@ -289,6 +291,17 @@ input {
   box-shadow: 2.3px 2.3px 6px -6px #222 !important;
 }
 
-.page-container .page-header {
-  margin-bottom: 30px;
+.asteriskField {
+  display: none;
+}
+
+.page-container .page-header  h1 {
+  font-family: Open Sans;
+  font-weight: 300;
+  /* sexyness below */
+  letter-spacing: -1.5px;
+}
+
+.login_input_element {
+  height: 40px;
 }

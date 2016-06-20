@@ -1,0 +1,8 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+	{% csrf_token %}
+	{% crispy form %}
+{% endblock %}

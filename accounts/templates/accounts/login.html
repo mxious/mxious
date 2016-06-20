@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+	{% load crispy_forms_tags %}
+	{% csrf_token %}
+	{% crispy form %}
+	<div class="or-typography">
+		<hr>
+		<span>or</span>
+	</div>
+	<br>
+	<a href="register" class="btn btn-primary btn-outline btn-lg btn-block">Create an account</a>
+	</div>
+{% endblock %}

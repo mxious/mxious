@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+	<div class="page-container col-md-8 col-md-offset-2">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h1>{% block title %}{% endblock %}</h1>
+				</div>	
+				<!-- begin formblock -->
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>	
+{% endblock %}
