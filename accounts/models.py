@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-	user = models.ForeignKey(User)
+	user = models.OneToOneField(User)
 	description = models.CharField(max_length=255)
 	location = models.CharField(max_length=55)
 	favorite_music = models.CharField(max_length=255)
