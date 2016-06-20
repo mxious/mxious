@@ -1,34 +1,12 @@
 from django import forms
-from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, Field, Button, Div
 from crispy_forms.bootstrap import InlineCheckboxes
+from . import validators
 
 # TODO: Refactor!
-
-def validate_username_taken(input):
-	if User.objects.filter(username__iexact=input).exists():
-		raise ValidationError("Username taken.")
-
-def validate_email_in_use(input):
-	if User.objects.filter(email__iexact=input).exists():
-		raise ValidationError("Email already in use.")
-
-def validate_username_blocked(input):
-	if input in settings.BLOCKED_USERNAMES:
-		raise ValidationError("This username is not available. Please try again later.")
-
-def validate_terms_of_service(input):
-	# This is the stupidest piece of code I've ever written, I swear.
-	if input == False:
-		raise ValidationError("You must agree to the Terms of Service to continue.")
-
-def validate_password_strength(input):
-	if len(input) <= 8:
-		raise ValidationError("Password is too weak. It must be 8 or more characters.")
 
 class LoginForm(AuthenticationForm):
 	username = forms.CharField(label='Username', max_length=50)
@@ -72,14 +50,20 @@ class RegisterForm(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
 		super(RegisterForm, self).__init__(*args, **kwargs)
-		self.fields['username'].validators.append(validate_username_blocked)
-		self.fields['username'].validators.append(validate_username_taken)
-		self.fields['email'].validators.append(validate_email_in_use)
-		self.fields['password'].validators.append(validate_password_strength)
-		self.fields['terms_of_service'].validators.append(validate_email_in_use)
+		# Set an error title.
 		self.helper.form_error_title = 'Oh dear, something went awry.'
+		# Register validators.
+		self.register_validators()
 		# Include the layout.
 		self.helper.layout = self.layout()
+
+	def register_validators(self):
+		""" Register all validators for fields, this avoids piling this up in __init__. """
+		self.fields['username'].validators.append(validators.validate_username_blocked)
+		self.fields['username'].validators.append(validators.validate_username_taken)
+		self.fields['email'].validators.append(validators.validate_email_in_use)
+		self.fields['password'].validators.append(validators.validate_password_strength)
+		self.fields['terms_of_service'].validators.append(validators.validate_email_in_use)
 
 	def clean(self):
 		"""
@@ -97,6 +81,7 @@ class RegisterForm(forms.ModelForm):
 		return self.cleaned_data
 
 	def layout(self):
+		""" Return the layout for the form. """
 		return Layout(
 			Field('username', title="Username"),
 			Field('password', title="Password"),

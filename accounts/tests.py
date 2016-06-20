@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .models import Profile
 from . import forms
+from . import validators
 
 class ProfileSignalTest(TestCase):
 	def setUp(self):
@@ -92,21 +93,21 @@ class FormValidatorTests(TestCase):
 
 	def test_validate_username_taken(self):
 		with self.assertRaises(ValidationError):
-			forms.validate_username_taken('default')
+			validators.validate_username_taken('default')
 
 	def test_validate_username_blocked(self):
 		with self.assertRaises(ValidationError):
-			forms.validate_username_blocked('admin')
+			validators.validate_username_blocked('admin')
 
 	def test_validate_password_strength(self):
 		with self.assertRaises(ValidationError):
-			forms.validate_password_strength('1234567')
+			validators.validate_password_strength('1234567')
 
 	def test_validate_email_in_use(self):
 		with self.assertRaises(ValidationError):
-			forms.validate_email_in_use('default@localhost.local')
+			validators.validate_email_in_use('default@localhost.local')
 
 	def test_validate_terms_of_service(self):
 		# Do I even have to test this?
 		with self.assertRaises(ValidationError):
-			forms.validate_terms_of_service(False)
+			validators.validate_terms_of_service(False)
