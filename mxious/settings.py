@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
     'crispy_forms',
-    'pages'
+    'accounts',
+    'pages',
+    'posts',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -122,16 +123,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
 
+# CrispyForms configuration
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
-
+# Application-specific configuration
 BLOCKED_USERNAMES = [
     'admin',
     'administrator'
 ]
+
+POST_DISPLAY_LIMIT = 5
