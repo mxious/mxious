@@ -10,3 +10,7 @@ class Post(models.Model):
 	downvotes = models.IntegerField(default=0)
 	score = models.IntegerField(default=0)
 	published = models.DateTimeField('time published', auto_now_add=True)
+
+	@staticmethod
+	def get_posts():
+		pass
