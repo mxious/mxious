@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 import django.contrib.auth as auth
 from django.contrib import messages
@@ -13,12 +13,11 @@ from .decorators import anonymous_required
 def login(request):
 	# Cleans up urls.py code + uses decorator for anonymous_required.
 	return auth.views.login(request,
-							template_name='accounts/login.html',
+							template_name='accounts/pages/login.html',
 							authentication_form=LoginForm)
 
 @login_required(redirect_field_name=None)
 def logout(request):
-	# TODO: Prevent GET logout attacks.
 	messages.success(request, "Logged out successfully.")
 	return auth.views.logout_then_login(request)
 
@@ -42,17 +41,18 @@ def register(request):
 			auth.login(request, user)
 
 			if mailing_list:
-				# Set mailing list to true in Profile field.
 				pass
 
-			# TODO: Reverse this
 			# Take the user to the dashboard.
 			return HttpResponseRedirect('dashboard')
 	else:
 		form = RegisterForm()
 
-	# Same comment as login.
 	context = {'form': form}
-	return render(request, 
-		          'accounts/register.html',
-		          context)
+	return render(request, 'accounts/pages/register.html', context)
+
+def profile(request, username):
+	""" Display the user's profile. """
+	user = get_object_or_404(User, username=username)
+	context = {'user': user}
+	return render(request, 'accounts/pages/profile.html', context)

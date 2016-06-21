@@ -6,6 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
 		<link type="text/css" rel="stylesheet" href="{% static 'css/global.css' %}" />
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,700|Oleo+Script|Open+Sans:300italic,400italic,400,300" />
+		{% block extra_stylesheets %}{% endblock %}
 	</head>
 	<body>
 		{% include 'navbar.html' %}

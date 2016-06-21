@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}@{{ user.username }} | Mxious{% endblock %}
+{% block extra_stylesheets %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock %}
+
+{% block body %}
+	<div class="profile-container col-md-8 col-md-offset-2">
+		<div class="profile-card">
+			<style>
+				.profile-cover { background-image: url('http://66.media.tumblr.com/tumblr_m9kh0tOJHp1qa8o4vo1_1280.jpg'); }
+			</style>
+			<article class="profile-cover">
+				<img align="left" class="img-circle profile-image" src="{{ user.profile.avatar }}" alt="@{{ user.username }}"/>
+			</article>
+			<div class="profile-content">
+				{% if user.get_full_name %}
+					<h1>{{ user.get_full_name }}</h1>
+					<h4>@{{ user.username }}</h4>
+				{% else %}
+					<h1>@{{ user.username }}</h1>
+				{% endif %}
+				<p>{{ user.profile.description }}</p>
+				<br>
+				<a class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Follow</a>
+				<a class="btn btn-primary btn-outline"><span class="glyphicon glyphicon-fire"></span> Upvote</a>
+			</div>
+		</div>
+	</div>	
+{% endblock %}
