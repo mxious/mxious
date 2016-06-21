@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 from .models import Profile
 from . import forms
 from . import validators
+from .views import profile
 
 class ProfileSignalTest(TestCase):
 	def setUp(self):
@@ -111,3 +112,16 @@ class FormValidatorTests(TestCase):
 		# Do I even have to test this?
 		with self.assertRaises(ValidationError):
 			validators.validate_terms_of_service(False)
+
+class ProfileViewTest(TestCase):
+	fixtures = ['users.json']
+	def test_shows_profile_user(self):
+		""" Test whether the profile page shows the correct user, and doesn't 404 """
+		response = self.client.get(reverse('accounts:profile', kwargs={'username': "default"}))
+		self.assertEquals(response.status_code, 200)
+		self.assertContains(response, '@default')
+
+	def test_fails_on_404(self):
+		""" Test whether the profile page fails on nonexistent profile w/ 404 """
+		response = self.client.get(reverse('accounts:profile', kwargs={'username': "fake_profile"}))
+		self.assertEquals(response.status_code, 404)
