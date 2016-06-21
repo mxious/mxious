@@ -1,0 +1,8 @@
+Accounts:
+  ☐ @critical Implement following (aside from display)
+  ☐ LogoutView: prevent logout GET attacks L:21 @high
+  ☐ RegisterView: reverse dashboard URL L:39 @low
+  ☐ RegisterView, ProfileModel: code Profile mailing list boolean @low
+  ☐ ProfileHtml: follow and upvote links @high
+  ☐ ProfileModel: covers @critical
+  ☐ Admin: fix required profile inputs
