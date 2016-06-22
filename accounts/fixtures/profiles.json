@@ -1,0 +1,28 @@
+[
+{
+    "model": "accounts.profile",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "description": "",
+        "location": "",
+        "favorite_music": "",
+        "follows": [
+            2
+        ]
+    }
+},
+{
+    "model": "accounts.profile",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "description": "",
+        "location": "",
+        "favorite_music": "",
+        "follows": [
+            1
+        ]
+    }
+}
+]

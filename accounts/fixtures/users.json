@@ -16,5 +16,23 @@
         "groups": [],
         "user_permissions": []
     }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$24000$1q7YIqavXr85$stHkPfO1RwavnTLKLOZwNpEbFPKWwIanjTbak4zEhm0=",
+        "last_login": "2016-06-20T00:32:59.167Z",
+        "is_superuser": false,
+        "username": "sergio",
+        "first_name": "",
+        "last_name": "",
+        "email": "default@localhost.local",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2016-06-20T00:32:49.899Z",
+        "groups": [],
+        "user_permissions": []
+    }
 }
 ]

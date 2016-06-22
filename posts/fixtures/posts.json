@@ -1,0 +1,58 @@
+[
+{
+    "model": "posts.post",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "title": "",
+        "image": "",
+        "content": "Hello world",
+        "upvotes": 0,
+        "downvotes": 0,
+        "score": 0,
+        "published": "2016-06-21T23:37:41.237Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "title": "",
+        "image": "",
+        "content": "Hello world, following!",
+        "upvotes": 0,
+        "downvotes": 0,
+        "score": 0,
+        "published": "2016-06-21T23:39:23.010Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "title": "Hello",
+        "image": "None",
+        "content": "Hello world",
+        "upvotes": 0,
+        "downvotes": 0,
+        "score": 0,
+        "published": "2016-06-22T00:11:34.155Z"
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 4,
+    "fields": {
+        "user": 1,
+        "title": "Hello",
+        "image": "None",
+        "content": "Hello World",
+        "upvotes": 0,
+        "downvotes": 0,
+        "score": 0,
+        "published": "2016-06-22T00:12:18.819Z"
+    }
+}
+]
