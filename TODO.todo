@@ -6,3 +6,6 @@ Accounts:
   ☐ ProfileHtml: follow and upvote links @high
   ☐ ProfileModel: covers @critical
   ☐ Admin: fix required profile inputs
+Posts:
+  ✔ PostModel: post_type profile @high @done (16-06-21 21:02)
+  
