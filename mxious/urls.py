@@ -17,12 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from pages.views import HomeView
 from accounts.views import profile
+from posts.views import dashboard
 
 urlpatterns = [
     # Special, non-local urls begin
 	url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^dashboard', dashboard, name='dashboard'),
     # App specific URLs begin
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^posts/', include('posts.urls')),
     # Low priority uris here (prevents accidental overrides)
 ]
