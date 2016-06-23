@@ -9,6 +9,12 @@
 		{% block extra_stylesheets %}{% endblock %}
 		<script src="{% static 'js/packaged.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/global.js' %}"></script>
+		<script type="text/javascript">
+			Mxious.init({
+				'csrf_token': '{{ csrf_token }}'
+			})
+		</script>
 	</head>
 	<body>
 		{% include 'navbar.html' %}
