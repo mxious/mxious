@@ -6,6 +6,7 @@ Accounts:
   ☐ ProfileHtml: follow and upvote links @high
   ☐ ProfileModel: covers @critical
   ☐ Admin: fix required profile inputs
+  ☐ Move decorators from accounts to mxious
 Posts:
   ✔ PostModel: post_type profile @high @done (16-06-21 21:02)
   ☐ fix string error @critical
