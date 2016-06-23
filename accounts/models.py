@@ -8,6 +8,7 @@ class Profile(models.Model):
 	location = models.CharField(max_length=55)
 	favorite_music = models.CharField(max_length=255)
 	follows = models.ManyToManyField('self', symmetrical=False)
+	# cover = models.CharField(max_length=555)
 
 	def avatar(self, default='identicon', size='150', rating='pg'):
 		email = self.user.email
