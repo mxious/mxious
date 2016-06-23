@@ -1,10 +1,12 @@
 {% load humanize %}
 {% load knum %}
 <div class="card card-std grid-item" data-id="{{ post.id }}">
-  <div class="image">
-    <img src="{{ post.image }}">
-    <span class="title">{{ post.title }}</span>
-  </div>
+  {% if post.image %}
+    <div class="image">
+      <img src="{{ post.image }}">
+      <span class="title">{{ post.title }}</span>
+    </div>
+  {% endif %}
   <div class="content">
     <p>{{ post.content }}</p>
     <br>

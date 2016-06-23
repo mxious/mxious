@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
 	user = models.ForeignKey(User)
 	title = models.CharField(max_length=50)
-	image = models.CharField(max_length=500)
+	image = models.CharField(max_length=500, default=None) # Implement support for textposts
 	content = models.CharField(max_length=255)
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
