@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'crispy_forms',
     'accounts',
     'pages',
     'posts',
+    'posts.templatetags',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -139,4 +141,4 @@ BLOCKED_USERNAMES = [
     'administrator'
 ]
 
-POST_DISPLAY_LIMIT = 5
+POST_DISPLAY_LIMIT = 10
