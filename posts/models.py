@@ -14,7 +14,7 @@ class Post(models.Model):
 	published = models.DateTimeField('time published', auto_now_add=True)
 
 	@staticmethod
-	def get_posts(user, post_type='following', order_by='desc', limit=settings.POST_DISPLAY_LIMIT, offset=None):
+	def get_posts(user, post_type='following', order_by='desc', limit=settings.POST_DISPLAY_LIMIT, offset=None, after_id=None):
 		# post_type definitions
 		if post_type == 'following':
 			following = user.profile.follows.all()
@@ -22,11 +22,19 @@ class Post(models.Model):
 		elif post_type == 'profile':
 			post_set = Post.objects.filter(user=user)
 
+		if after_id is not None:
+			post_set = post_set.filter(id__gt=after_id)
+
 		# order_by definitions
 		if order_by == 'desc':
 			post_set = post_set.order_by('-published')
 		if order_by == 'asc':
 			post_set = post_set.order_by('published')
+
+		# offset logic
+		if offset is not None:
+			# fix array count
+			post_set = post_set[offset:]
 
 		# limit logic
 		if limit != settings.POST_DISPLAY_LIMIT:
@@ -34,10 +42,6 @@ class Post(models.Model):
 		else:
 			default_limit = settings.POST_DISPLAY_LIMIT
 			post_set = post_set[:default_limit]
-
-		# offset logic
-		if offset is not None:
-			post_set = post_set[offset:]
 
 		# Return the final, filtered post_set
 		return post_set
