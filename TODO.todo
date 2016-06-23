@@ -8,4 +8,12 @@ Accounts:
   ☐ Admin: fix required profile inputs
 Posts:
   ✔ PostModel: post_type profile @high @done (16-06-21 21:02)
-  
+  ☐ fix string error @critical
+  ☐ allow unlimited limit postget
+  ☐ test afterids
+  ☐ IDEA FOR JS: Change to data attributes (feed type, etc)
+  ☐ Ajax decorator @critical
+  ☐ Clean up shisss
+ General templates:
+   ☐ NavbarView: FIX AUTH AND MAKE A NAV
+   ☐ NAV ULs

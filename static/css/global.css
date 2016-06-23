@@ -305,3 +305,9 @@ input {
 .login_input_element {
   height: 40px;
 }
+
+.nav-avatar {
+  height: 20px;
+  margin-top: -3px;
+  margin-right: 5px;
+}

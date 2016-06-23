@@ -1,0 +1,30 @@
+{% load humanize %}
+{% load knum %}
+<div class="card card-std grid-item" data-id="{{ post.id }}">
+  <div class="image">
+    <img src="{{ post.image }}">
+    <span class="title">{{ post.title }}</span>
+  </div>
+  <div class="content">
+    <p>{{ post.content }}</p>
+    <br>
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object img-circle img-avatar-card" src="{{ post.user.profile.avatar }}" alt="...">
+        </a>
+      </div>
+      <div class="media-body">
+        <h5 class="media-heading">@{{ post.user.username }}</h5>
+        {{ post.published | naturaltime }}
+      </div>
+    </div>
+  </div>
+  <div class="action">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-success btn-outline"><span class="glyphicon glyphicon-thumbs-up"></span> {{ post.upvotes | knum }}</button>
+      <button type="button" class="btn btn-danger btn-outline"><span class="glyphicon glyphicon-thumbs-down"></span> {{ post.downvotes | knum }}</button>
+    </div>
+    <button type="button" class="btn btn-primary btn-outline">Listen</button>
+  </div>
+</div>

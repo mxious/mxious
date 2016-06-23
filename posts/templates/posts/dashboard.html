@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load render_post static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+	<div id="grid" data-columns>
+		{% for post in posts %}
+			{% render_post post %}
+		{% endfor %}
+	</div>
+	<script src="{% static 'js/feed.js' %}"></script>
+	<script type="text/javascript">
+		Feed.init('#grid', 'following', {{ offset }}, '.grid-item')
+	</script>
+{% endblock %}

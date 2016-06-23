@@ -1,3 +1,82 @@
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#navbar-brand-centered"
+            data-toggle="collapse" type="button"><span class="sr-only">Toggle
+            navigation</span> <span class="icon-bar"></span> <span class=
+            "icon-bar"></span> <span class="icon-bar"></span></button>
+
+            <div class="navbar-brand navbar-brand-centered">
+                mxious
+            </div>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+        <div class="collapse navbar-collapse" id="navbar-brand-centered">
+            <div class="nav navbar-nav" style="margin-left: 2em">
+                <form action="/search" class="navbar-form navbar-left" method=
+                "post" role="search">
+                    <div class="form-group">
+                        <input class="form-control" name="query" placeholder=
+                        "Search Mxious..." type="text">
+                    </div>
+                </form>
+            </div>
+
+
+            <ul class="nav navbar-nav navbar-right">
+    
+                <li class="dropdown" data-placement="left" data-toggle=
+                "tooltip" id="menu" title="Click to explore Mxious">
+                    <a aria-expanded="false" aria-haspopup="true" class=
+                    "dropdown-toggle" data-toggle="dropdown" href="#" role=
+                    "button"><img class="img-circle nav-avatar" src="{{ request.user.profile.avatar }}"> <span class="glyphicon glyphicon-menu-down nav-glyph" aria-hidden="true"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><span class=
+                            "glyphicon glyphicon-globe"></span> Explore</a>
+                        </li>
+
+
+                        <li>
+                            <a href="#"><span class=
+                            "glyphicon glyphicon-stats"></span> Charts</a>
+                        </li>
+
+
+                        <li>
+                            <a href="#"><span class=
+                            "glyphicon glyphicon-fire"></span> Trending Now</a>
+                        </li>
+
+
+                        <li class="divider" role="separator">
+                        </li>
+
+
+                        <li>
+                            <a href="#">Sign in</a>
+                        </li>
+
+
+                        <li>
+                            <a href="#">Register</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+{% else %}
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,3 +154,4 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+{% endif %}
