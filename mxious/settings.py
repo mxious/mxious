@@ -142,3 +142,7 @@ BLOCKED_USERNAMES = [
 ]
 
 POST_DISPLAY_LIMIT = 10
+
+# Login settings
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = '/dashboard'
