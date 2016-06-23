@@ -51,7 +51,9 @@ var Feed = {
 			};
 			console.log("Loading more: " + debug)
 			var elem = jQuery(data.html);
-            Feed.container.append(elem).masonry('appended', elem)
+			Feed.container.append(elem).imagesLoaded(function () {
+				Feed.container.masonry('appended', elem);
+			});
 		},
 
 		poll: {

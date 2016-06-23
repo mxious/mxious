@@ -16,7 +16,7 @@
       </div>
       <div class="media-body">
         <h5 class="media-heading">@{{ post.user.username }}</h5>
-        {{ post.published | naturaltime }}
+        <span data-livestamp="{{ post.published | date:"c" }}"></span>
       </div>
     </div>
   </div>

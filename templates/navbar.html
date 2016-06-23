@@ -10,9 +10,9 @@
             navigation</span> <span class="icon-bar"></span> <span class=
             "icon-bar"></span> <span class="icon-bar"></span></button>
 
-            <div class="navbar-brand navbar-brand-centered">
+            <a href="{% url 'home' %}" class="navbar-brand navbar-brand-centered">
                 mxious
-            </div>
+            </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -23,7 +23,7 @@
                 "post" role="search">
                     <div class="form-group">
                         <input class="form-control" name="query" placeholder=
-                        "Search Mxious..." type="text">
+                        "Search Mxious, @{{ request.user.username }}..." type="text">
                     </div>
                 </form>
             </div>
@@ -61,12 +61,17 @@
 
 
                         <li>
-                            <a href="#">Sign in</a>
+                            <a href="accounts/{{ request.user.username }}">Your Profile</a>
                         </li>
 
 
                         <li>
-                            <a href="#">Register</a>
+                            <a href="#">Settings</a>
+                        </li>
+
+
+                        <li>
+                            <a href="{% url 'accounts:logout' %}">Sign out</a>
                         </li>
                     </ul>
                 </li>
@@ -88,9 +93,9 @@
             navigation</span> <span class="icon-bar"></span> <span class=
             "icon-bar"></span> <span class="icon-bar"></span></button>
 
-            <div class="navbar-brand navbar-brand-centered">
+            <a href="{% url 'home' %}" class="navbar-brand navbar-brand-centered">
                 mxious
-            </div>
+            </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
 
