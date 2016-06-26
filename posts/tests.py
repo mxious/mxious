@@ -40,3 +40,11 @@ class PostModelTests(TestCase):
 		# Assert whether feed items are equal.
 		# NOTE: Must be typecasted to list because QuerySets are in different memory regions
 		self.assertListEqual(list(expected_result), list(feed))
+
+	def test_vote(self):
+		# TODO: Write tests for vote function
+		pass
+
+	def test_ajax(self):
+		# TODO: Write tests for various functions related to AJAX (this is a placeholder)
+		pass
