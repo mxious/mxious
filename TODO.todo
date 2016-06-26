@@ -9,15 +9,15 @@ Accounts:
   ☐ Move decorators from accounts to mxious
 Posts:
   ✔ PostModel: post_type profile @high @done (16-06-21 21:02)
-  ☐ fix string error @critical
-  ☐ allow unlimited limit postget
-  ☐ test afterids
+  ✔ fix string error @critical @done (16-06-25 23:55)
+  ☐ allow unlimited limit postget (later note: ???)
+  ☐ Write tests for get_post changes
   ☐ IDEA FOR JS: Change to data attributes (feed type, etc)
-  ☐ Ajax decorator @critical
-  ☐ Clean up shisss
+  ✔ Ajax decorator @critical @done (16-06-25 23:56)
+  ☐ Clean up JavaScript
  General templates:
    ☐ NavbarView: FIX AUTH AND MAKE A NAV
    ☐ NAV ULs
-   ☐ STOP USING HARDCODED BASEURL
+   ☐ STOP USING HARDCODED BASEURL @critical
 Coverpy:
-  ☐ Yellow of death
+  ☐ Yellow of death, add an in condition for artwork
