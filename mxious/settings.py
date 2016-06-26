@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pages',
     'posts',
     'posts.templatetags',
+    'covers',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_settings_export.settings_export'
             ],
         },
     },
@@ -146,3 +148,8 @@ POST_DISPLAY_LIMIT = 10
 # Login settings
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = '/dashboard'
+
+# Expose a few settings to templates
+SETTINGS_EXPORT = [
+    'POST_DISPLAY_LIMIT',
+]
