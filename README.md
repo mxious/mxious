@@ -5,6 +5,7 @@ The Mxious social music discovery engine.
 To run Mxious, run the following in terminal:
 
     git clone https://github.com/mxious/mxious.git
+    pip install -r requirements.txt
     python3 manage.py migrate
     python3 manage.py runserver
 That should get you up and running. Some tips though:
