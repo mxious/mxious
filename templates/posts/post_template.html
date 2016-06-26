@@ -4,7 +4,9 @@
   {% if post.image %}
     <div class="image">
       <img src="{{ post.image }}">
-      <span class="title">{{ post.title }}</span>
+       <article class="wrap-title">
+         <span class="title">{{ post.title }}</span>
+       </article>
     </div>
   {% endif %}
   <div class="content">

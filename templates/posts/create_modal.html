@@ -1,0 +1,42 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="post-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Create a post <span id="canload"></span></h4>
+      </div>
+      <div class="modal-body">
+        <p><input id="post-live-input" class="form-control" placeholder="Start typing an album, artist, or song here, we'll find the rest for you."></input></p>
+
+        <!-- begin hidden post -->
+	        <div class="card unpublished">
+	            <div class="image">
+	              <img id="post-live-image" src="">
+	              <article class="wrap-title" data-toggle="tooltip" data-placement="left" title="Click me to change the title">
+		              <span contentEditable id="post-live-title" class="title"></span>
+	              </article>
+	            </div>
+	          
+	          <div class="content">
+	            <p><textarea id="post-text" placeholder="Click here to write something..."></textarea></p>
+	            <br>
+	            <div class="media">
+	              <div class="media-left">
+	                <a href="#">
+	                  <img class="media-object img-circle img-avatar-card" src="{{ request.user.profile.avatar }}" alt="...">
+	                </a>
+	              </div>
+	              <div class="media-body">
+	                <h5 class="media-heading">@{{ request.user.username }}</h5>
+	                <span>Not published yet</span>
+	              </div>
+	            </div>
+	          </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" id="post-button" disabled class="btn btn-primary">Post this</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

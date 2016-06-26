@@ -11,6 +11,6 @@
 	</div>
 	<script src="{% static 'js/feed.js' %}"></script>
 	<script type="text/javascript">
-		Feed.init('#grid', 'following', {{ offset }}, '.grid-item')
+		Feed.init('#grid', 'following', Mxious.config('POST_DISPLAY_LIMIT'), '.grid-item')
 	</script>
 {% endblock %}
