@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^posts/', include('posts.urls')),
+    url(r'^covers/', include('covers.urls')),
     # Low priority uris here (prevents accidental overrides)
 ]
