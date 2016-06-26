@@ -12,7 +12,10 @@
 		<script src="{% static 'js/global.js' %}"></script>
 		<script type="text/javascript">
 			Mxious.init({
-				'csrf_token': '{{ csrf_token }}'
+				// FIND WORKAROUND TO the hardcoded URL.
+				'BASE_URL': 'http://localhost:8000/',
+				'CSRF_TOKEN': '{{ csrf_token }}',
+				'POST_DISPLAY_LIMIT': '{{ settings.POST_DISPLAY_LIMIT }}'
 			})
 		</script>
 	</head>
@@ -26,5 +29,11 @@
 			{% endif %}
 			{% block body %}{% endblock %}
 		</div>
+
+		<!-- Load the post modal if signed in. -->
+		{% if request.user.is_authenticated %}
+			{% include 'posts/create_modal.html' %}
+			<script src="{% static 'js/post-create.js' %}"></script>
+		{% endif %}
 	</body>
 </html>

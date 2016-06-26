@@ -43,7 +43,7 @@ var Feed = {
 		},
 
 		load_more_callback: function (data) {
-			Feed.offset = Feed.offset + data.count;
+			Feed.offset = +Feed.offset + +data.count;
 			var debug = {
 				offset: Feed.offset,
 				count: data.count,
@@ -68,8 +68,8 @@ var Feed = {
 				var latest_id = $("" + Feed.container_string + " " + Feed.item_selector).first().data('id');
 				var type = Feed.feed_type;
 				var data = {
-					last_id: latest_id,
-					feed_type: type
+					last_post: latest_id,
+					type: type
 				}
 				$.ajax({
 					url: 'posts/poll',
@@ -82,13 +82,13 @@ var Feed = {
 				})
 			},
 			callback: function (data) {
-				if (data.count != 0) {
+				if (data.count != 0 && data.count != undefined) {
 					console.log("Ayy lmao, there's new data on the server! Adding it to your feed.")
 					elem = jQuery(data.html)
 					Feed.container.prepend(elem).imagesLoaded(function () {
 						Feed.container.masonry('prepended', elem);
 					})
-					Feed.offset = Feed.offset + data.count;
+					Feed.offset = +Feed.offset + +data.count;
 					// force redraw to fix overlaps TODO @critical
 				}	
 			}

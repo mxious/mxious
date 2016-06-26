@@ -18,21 +18,19 @@
 
 
         <div class="collapse navbar-collapse" id="navbar-brand-centered">
-            <div class="nav navbar-nav" style="margin-left: 2em">
-                <form action="/search" class="navbar-form navbar-left" method=
+            <div class="nav navbar-nav navbar-left" style="margin-left: 2em"> 
+                <form action="/search" class="navbar-form navbar-left " method=
                 "post" role="search">
                     <div class="form-group">
                         <input class="form-control" name="query" placeholder=
-                        "Search Mxious, @{{ request.user.username }}..." type="text">
+                        "Search Mxious..." type="text">
                     </div>
                 </form>
             </div>
 
-
             <ul class="nav navbar-nav navbar-right">
-    
-                <li class="dropdown" data-placement="left" data-toggle=
-                "tooltip" id="menu" title="Click to explore Mxious">
+                
+                <li class="dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class=
                     "dropdown-toggle" data-toggle="dropdown" href="#" role=
                     "button"><img class="img-circle nav-avatar" src="{{ request.user.profile.avatar }}"> <span class="glyphicon glyphicon-menu-down nav-glyph" aria-hidden="true"></span></a>
@@ -76,6 +74,8 @@
                     </ul>
                 </li>
             </ul>
+            &nbsp;&nbsp;
+            <button id="open-modal" href="#" class="btn btn-default navbar-btn navbar-right btn-outline"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> New post</button>
         </div>
         <!-- /.navbar-collapse -->
     </div>
