@@ -1,8 +1,8 @@
 # Mxious
 The Mxious social music discovery engine.
 
-# How to run it
-To run Mxious, run the following in terminal:
+# Installing
+To install Mxious, run the following in terminal:
 
     git clone https://github.com/mxious/mxious.git
     pip install -r requirements.txt
