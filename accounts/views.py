@@ -40,11 +40,8 @@ def register(request):
 			# Log the user in
 			auth.login(request, user)
 
-			if mailing_list:
-				pass
-
 			# Take the user to the dashboard.
-			return HttpResponseRedirect('dashboard')
+			return HttpResponse('dashboard')
 	else:
 		form = RegisterForm()
 
